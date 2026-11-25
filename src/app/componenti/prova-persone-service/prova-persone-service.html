@@ -1,0 +1,15 @@
+<div>   
+    @for (persona of persone; track persona; let i = $index; let isLast = $last; let isFirst = $first;) {
+        <div class="rigaPersona"
+            [ngStyle]="{color: persona.colore}">
+            <span>
+                {{isFirst}}/{{isLast}} {{ persona.nome }} {{ persona.cognome }}
+            </span>
+            <div class="cerchio"
+                    [ngClass]="{cerchioOnline: persona.isOnline, 
+                                cerchioOffline: !persona.isOnline}">
+            
+            </div>
+        </div>
+    }
+</div>

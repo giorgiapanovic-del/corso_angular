@@ -1,0 +1,81 @@
+<h1 appHighLight [appHighLight]='colore' [defaultColor]='defaultColor'>{{title}}</h1>
+<p>Ciao benvenuto al {{title | uppercase}}</p>
+<p>La data di oggi è: {{ oggi | date:'d/MM/yyyy - h:mm' }}</p>
+<p>{{numero | number:'3.2-2'}}</p>
+<p>{{numero | currency:'EUR'}}</p>
+<!--
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{cani[0].nome}}</mat-card-title>
+    <mat-card-subtitle>{{cani[0].razza}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{cani[0].descrizione}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton>LIKE</button>
+    <button matButton>SHARE</button>
+    <button mat.raised-button color="primary" [disabled]="isDisabled" (click)="hoCliccato(' e sono felice')">Test</button>
+  </mat-card-actions>
+</mat-card>
+   <mat-form-field class="example-full-width">
+        <mat-label>Titolo</mat-label>
+        <input matInput placeholder="Titolo" [(ngModel)]="title">
+    </mat-form-field>
+
+ <div *ngIf = "daVedere">
+        <p>Sono visibile vecchio stile</p>
+ </div>
+    @if (daVedere) {
+        <div>
+            <p>Sono visibile</p>
+        </div>
+    } @else {
+        <div>
+            <p>Non sono visibile</p>
+        </div>
+    }
+    -->
+    <div>   
+        @for (persona of persone; track persona; let i = $index; let isLast = $last; let isFirst = $first;) {
+         <div class="rigaPersona"
+             [ngStyle]="{color: persona.colore}">
+                <span>
+                    {{isFirst}}/{{isLast}} {{ persona.nome }} {{ persona.cognome }}
+                </span>
+                <div class="cerchio"
+                      [ngClass]="{cerchioOnline: persona.isOnline, 
+                                  cerchioOffline: !persona.isOnline}">
+                
+                </div>
+         </div>
+        }
+        <button mat.raised-button color="primary" (click)="invioDati()">Invio dati</button>
+    </div>
+    <div>
+    <input #inputSaluti value="ciao">
+        <button mat.raised-button color="primary" (click)="seeValue()">see inputSaluti</button>
+    </div>
+    <!--
+    @switch (numero) {
+        @case (1) {
+            <p>Uno</p>
+        }
+        @case (2) {
+            <p>Due</p>
+        }
+        @case (3) {
+            <p>Tre</p>
+        }
+        @case (4) {
+            <p>Quattro</p>
+        }
+        @default {
+            <p>Default</p>
+        }
+    }
+-->
