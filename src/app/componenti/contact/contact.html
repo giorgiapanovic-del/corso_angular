@@ -1,1 +1,12 @@
-<p>contact works!</p>
+
+@if(!isProfile){
+    <div>   
+    @for (persona of persone; track persona;let i = $index;){
+        <div class="rigaPersona" [ngStyle]="{color: persona.colore}">
+            <a routerLink="/contact/{{i}}"> {{ persona.nome }} {{ persona.cognome }} </a>
+        </div>
+    }
+</div>   
+} @else {
+    <p>Profile contatto di {{ persona.nome }} {{ persona.cognome }} online:{{persona.isOnline}}</p>
+}
